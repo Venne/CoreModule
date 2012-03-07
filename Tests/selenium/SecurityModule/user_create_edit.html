@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Security user</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Security user</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>admin/core/security.users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=create new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=frmform-enable</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmform-email</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=frmform-password_new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmform-_password</td>
+	<td>passpass</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmform-password_confirm</td>
+	<td>passpass</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=frmform-roleEntities</td>
+	<td>label=registered</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=frmform-_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>User has been created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>test@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=editovat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=frmformEdit-email</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmformEdit-email</td>
+	<td>test@test2.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=frmformEdit-_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>User has been updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=frmformEdit-email</td>
+	<td>test@test2.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>test@test2.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=smazat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>really?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>User has been deleted</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

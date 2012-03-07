@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Installation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmsystemAccountForm-name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmsystemAccountForm-password</td>
+	<td>passpass</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmsystemAccountForm-_password</td>
+	<td>passpass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=frmsystemAccountForm-_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=frmsystemDatabaseForm-driver</td>
+	<td>label=pdo_sqlite</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//form[@id='frm-systemDatabaseForm']/fieldset[2]/table/tbody/tr[6]/td/select</td>
+	<td>label=%tempDir%/database.db</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=frmsystemDatabaseForm-_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frmformWebsite-title</td>
+	<td>Title %s %t</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=frmformWebsite-_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select</td>
+	<td>label=Čeština</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//form[@id='frm-formLanguage']/fieldset/table/tbody/tr[2]/td/select</td>
+	<td>label=cs</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//form[@id='frm-formLanguage']/fieldset/table/tbody/tr[3]/td/select</td>
+	<td>label=cs</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=frmformLanguage-_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Finish</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

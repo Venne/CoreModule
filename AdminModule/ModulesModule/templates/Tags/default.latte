@@ -1,0 +1,39 @@
+{* This is temporary page, you can delete it *}
+
+{block content}
+
+{include "../head.latte"}
+
+<h2>Tags</h2>
+
+{control form}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th style="width: 40%;">{_"Service name"}</th>
+			<th style="width: 20%;">{_"Priority"}</th>
+			<th style="width: 40%;"></th>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach $items as $items2}
+		{foreach $items2 as $name => $meta}
+
+		<tr class="screens {if $iterator->getCounter()%2 == 0} even{/if}{if $iterator->isLast()} footer{/if}">
+			<td>
+				{$name}
+			</td>
+			<td>
+            	{$meta["priority"] ?: 0}
+            </td>
+			<td class="actions">
+				<ul>
+					<li><a href="{link edit key=>$name}">edit</a></li>
+				</ul>
+			</td>
+		</tr>
+		{/foreach}
+		{/foreach}
+	</tbody>
+</table>
