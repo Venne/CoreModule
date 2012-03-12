@@ -64,11 +64,9 @@ class PagePresenter extends FrontPresenter
 	protected function loadPage()
 	{
 		$entity = $this->getParameter("page");
+		$repository = $this->context->core->cmsManager->getContentRepository($entity->type);
 
-		$module = $this->getModuleName();
-		$presenter = lcfirst(substr($this->getName(), strrpos($this->getName(), ":") + 1));
-		$repository = $presenter == "default" ? $module : $presenter;
-		$page = $this->context->{$module}->{$repository . "Repository"}->findOneBy(array("page" => $entity->id));
+		$page = $repository->findOneBy(array("page" => $entity->id));
 		if (!$page && !$this->url) {
 			$page = $this->context->blog->blogRepository->findOneBy(array("mainPage" => true));
 		}

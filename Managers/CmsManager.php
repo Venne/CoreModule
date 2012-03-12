@@ -20,7 +20,8 @@ use \Closure;
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
  */
-class CmsManager extends Object {
+class CmsManager extends Object
+{
 
 
 	/** @var Container */
@@ -41,9 +42,9 @@ class CmsManager extends Object {
 	/* --------------------- Configuration ------------------------- */
 
 
-	public function addContentType($name, $label, array $pageParams, Closure $formFactory, Closure $entityFactory)
+	public function addContentType($name, $label, array $pageParams, \Venne\Doctrine\ORM\BaseRepository $repository, Closure $formFactory)
 	{
-		$this->contentTypes[$name] = array("label" => $label, "form" => $formFactory, "entity" => $entityFactory, "params" => $pageParams);
+		$this->contentTypes[$name] = array("label" => $label, "form" => $formFactory, "repository" => $repository, "params" => $pageParams);
 	}
 
 
@@ -84,10 +85,16 @@ class CmsManager extends Object {
 
 
 
+	public function getContentRepository($type)
+	{
+		return $this->contentTypes[$type]["repository"];
+	}
+
+
+
 	public function getContentEntity($type)
 	{
-		$closure = $this->contentTypes[$type]["entity"];
-		return $closure();
+		return $this->getContentRepository($type)->createNew();
 	}
 
 
