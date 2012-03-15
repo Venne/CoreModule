@@ -430,10 +430,12 @@ class PageEntity extends \Venne\Doctrine\ORM\BaseEntity {
 	 */
 	public function isInLanguageAlias($alias)
 	{
-		return $this->languages->exists(function($key, $entity) use ($alias)
-		{
-			return ($entity->alias == $alias);
-		});
+		foreach ($this->languages as $language) {
+			if ($language->alias == $alias) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 
