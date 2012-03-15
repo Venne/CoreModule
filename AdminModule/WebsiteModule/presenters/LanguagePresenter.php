@@ -18,7 +18,8 @@ use \Nette\Application\UI\Form;
  *
  * @secured
  */
-class LanguagePresenter extends BasePresenter {
+class LanguagePresenter extends BasePresenter
+{
 
 
 	/** @persistent */
@@ -49,14 +50,24 @@ class LanguagePresenter extends BasePresenter {
 		$form->addSubmit("_submit", "Save");
 		$form->onSuccess[] = function($form) use ($repository, $config)
 		{
-			$repository->save($form->entity);
+			try {
+				$repository->save($form->entity);
+				$form->getPresenter()->flashMessage("Language has been created", "success");
+			} catch (\Venne\Doctrine\ORM\SqlException $e) {
+				if ($e->getCode() == 23000) {
+					$form->presenter->flashMessage("Language is not unique", "warning");
+					return;
+				} else {
+					throw $e;
+				}
+			}
+
 			$languages = array();
 			foreach ($repository->findAll() as $entity) {
 				$languages[] = $entity->alias;
 			}
 			$config["parameters"]["website"]["languages"] = $languages;
 			$config->save();
-			$form->getPresenter()->flashMessage("Language has been created", "success");
 			$form->getPresenter()->redirect("default");
 		};
 		return $form;
@@ -76,7 +87,18 @@ class LanguagePresenter extends BasePresenter {
 		$form->addSubmit("_submit", "Save");
 		$form->onSuccess[] = function($form) use ($repository, $config)
 		{
-			$repository->save($form->entity);
+			try {
+				$repository->save($form->entity);
+				$form->getPresenter()->flashMessage("Language has been updated", "success");
+			} catch (\Venne\Doctrine\ORM\SqlException $e) {
+				if ($e->getCode() == 23000) {
+					$form->presenter->flashMessage("Language is not unique", "warning");
+					return;
+				} else {
+					throw $e;
+				}
+			}
+
 			$languages = array();
 			foreach ($repository->findAll() as $entity) {
 				$languages[] = $entity->alias;
@@ -86,7 +108,6 @@ class LanguagePresenter extends BasePresenter {
 				$config["parameters"]["website"]["defaultLanguage"] = $form->entity->alias;
 			}
 			$config->save();
-			$form->getPresenter()->flashMessage("Language has been updated", "success");
 			$form->getPresenter()->redirect("this");
 		};
 		return $form;

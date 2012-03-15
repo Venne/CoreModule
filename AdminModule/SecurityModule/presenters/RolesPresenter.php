@@ -18,7 +18,8 @@ use Venne;
  *
  * @secured
  */
-class RolesPresenter extends BasePresenter {
+class RolesPresenter extends BasePresenter
+{
 
 
 	/** @persistent */
@@ -139,8 +140,17 @@ class RolesPresenter extends BasePresenter {
 		$form->addSubmit("_submit", "Create");
 		$form->onSuccess[] = function($form) use ($repository)
 		{
-			$repository->save($form->entity);
-			$form->getPresenter()->flashMessage("Role has been saved", "success");
+			try {
+				$repository->save($form->entity);
+				$form->getPresenter()->flashMessage("Role has been saved", "success");
+			} catch (\Venne\Doctrine\ORM\SqlException $e) {
+				if ($e->getCode() == 23000) {
+					$form->presenter->flashMessage("Role {$form->entity->name} already exists", "warning");
+					return;
+				} else {
+					throw $e;
+				}
+			}
 			$form->getPresenter()->redirect("default");
 		};
 		return $form;
@@ -151,15 +161,24 @@ class RolesPresenter extends BasePresenter {
 	public function createComponentFormRoleEdit($name)
 	{
 		$repository = $this->context->core->roleRepository;
-		$entity = $repository->find($this->getParam("id"));
+		$entity = $repository->find($this->getParameter("id"));
 
 		$form = $this->context->core->createRoleForm();
 		$form->setEntity($entity);
 		$form->addSubmit("_submit", "Update");
 		$form->onSuccess[] = function($form) use ($repository)
 		{
-			$repository->save($form->entity);
-			$form->getPresenter()->flashMessage("Role has been updated", "success");
+			try {
+				$repository->save($form->entity);
+				$form->getPresenter()->flashMessage("Role has been updated", "success");
+			} catch (\Venne\Doctrine\ORM\SqlException $e) {
+				if ($e->getCode() == 23000) {
+					$form->presenter->flashMessage("User {$form->entity->name} already exists", "warning");
+					return;
+				} else {
+					throw $e;
+				}
+			}
 			$form->getPresenter()->redirect("this");
 		};
 		return $form;

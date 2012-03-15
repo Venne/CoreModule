@@ -77,10 +77,20 @@ $(function () {
             args.link = "#";
         }
 
+		if (typeof(args.width) == "undefined") {
+			args.width = "500";
+		}
+
+		if (typeof(args.height) == "undefined") {
+			args.height = "400";
+		}
+
         if (args.type == "confirm") {
             $(this).dialog({
                 resizable:args.resizable,
                 modal:args.modal,
+				width:args.width,
+				height:args.height,
                 buttons:{
                     confirm:{
                         text:args.label,
@@ -96,6 +106,8 @@ $(function () {
         } else {
             $(this).dialog({
                 resizable:args.resizable,
+				width:args.width,
+				height:args.height,
                 modal:args.modal
             });
         }

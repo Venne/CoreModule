@@ -19,7 +19,8 @@ use Venne;
  * @secured
  * @persistent (vp)
  */
-class UsersPresenter extends BasePresenter {
+class UsersPresenter extends BasePresenter
+{
 
 
 	/** @persistent */
@@ -76,8 +77,17 @@ class UsersPresenter extends BasePresenter {
 		$form->onSuccess[] = function($form) use ($repository)
 		{
 			$form->entity->enable = 1;
-			$repository->save($form->entity);
-			$form->presenter->flashMessage("User has been created", "success");
+			try {
+				$repository->save($form->entity);
+				$form->presenter->flashMessage("User has been created", "success");
+			} catch (\Venne\Doctrine\ORM\SqlException $e) {
+				if ($e->getCode() == 23000) {
+					$form->presenter->flashMessage("User {$form->entity->name} already exists", "warning");
+					return ;
+				} else {
+					throw $e;
+				}
+			}
 			$form->presenter->redirect("default");
 		};
 		return $form;
@@ -95,8 +105,17 @@ class UsersPresenter extends BasePresenter {
 		$form->addSubmit("_submit", "Save");
 		$form->onSuccess[] = function($form) use ($repository)
 		{
-			$repository->save($form->entity);
-			$form->presenter->flashMessage("User has been updated", "success");
+			try {
+				$repository->save($form->entity);
+				$form->presenter->flashMessage("User has been updated", "success");
+			} catch (\Venne\Doctrine\ORM\SqlException $e) {
+				if ($e->getCode() == 23000) {
+					$form->presenter->flashMessage("User {$form->entity->name} already exists", "warning");
+					return ;
+				} else {
+					throw $e;
+				}
+			}
 			$form->presenter->redirect("this");
 		};
 		return $form;

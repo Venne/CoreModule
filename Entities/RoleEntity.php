@@ -26,7 +26,7 @@ class RoleEntity extends \Venne\Doctrine\ORM\BaseEntity {
 
 
 	/**
-	 * @Column(type="string")
+	 * @Column(type="string", unique=true)
 	 */
 	protected $name;
 
