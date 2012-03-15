@@ -82,7 +82,7 @@ class PagePresenter extends FrontPresenter
 	 */
 	public function handleChangeLanguage($alias)
 	{
-		$page = $this->page->getPageWithLanguageAlias($alias);
+		$page = $this->page->page->getPageWithLanguageAlias($alias);
 		$this->redirect("this", array("lang" => $alias, "url" => ($page ? $page->url : "")));
 	}
 
