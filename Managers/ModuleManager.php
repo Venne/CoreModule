@@ -220,7 +220,7 @@ class ModuleManager extends Object {
 		$this->config["parameters"]["modules"][$name] = \Nette\ArrayHash::from($config, true);
 		$this->config->save();
 
-		/* config */
+		// config
 		$config = new \Nette\Config\Adapters\NeonAdapter();
 		$modules = $config->load($this->context->parameters["configDir"] . "/modules.neon");
 		if(!array_search($name, $modules)){

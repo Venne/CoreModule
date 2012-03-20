@@ -50,7 +50,7 @@ class UserEntity extends \Nette\Security\Identity implements \Venne\Doctrine\ORM
 	protected $password;
 
 	/**
-	 * @Column(type="string", name="`key`")
+	 * @Column(type="string", name="`key`", nullable=true)
 	 */
 	protected $key;
 

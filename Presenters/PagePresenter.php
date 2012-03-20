@@ -156,7 +156,7 @@ class PagePresenter extends FrontPresenter
 	public function createComponent($name)
 	{
 		if (substr($name, 0, 17) == "contentExtension_") {
-			$this->context->eventManager->dispatchEvent(\Venne\ContentExtension\Events::onRender);
+			$this->context->eventManager->dispatchEvent(\Venne\ContentExtension\Events::onContentExtensionRender);
 		} else {
 			return parent::createComponent($name);
 		}

@@ -14,23 +14,21 @@ namespace App\CoreModule\Helpers;
 use Venne;
 use Nette;
 use Nette\Object;
-use Venne\Templating\IHelper;
+use Venne\Templating\BaseHelper;
 use ITemplateConfigurator;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
  */
-class LatteHelper extends Object implements IHelper
+class LatteHelper extends BaseHelper
 {
+
 
 	/** @var ITemplateConfigurator */
 	protected $templateConfigurator;
 
 	/** @var \Nette\Application\Application */
 	protected $application;
-
-	/** @var LatteHelper */
-	protected static $instance;
 
 
 
@@ -39,9 +37,9 @@ class LatteHelper extends Object implements IHelper
 	 */
 	public function __construct(\Nette\Application\Application $application, \Venne\Templating\ITemplateConfigurator $templateConfigurator)
 	{
+		parent::__construct();
 		$this->application = $application;
 		$this->templateConfigurator = $templateConfigurator;
-		self::$instance = $this;
 	}
 
 
@@ -50,23 +48,11 @@ class LatteHelper extends Object implements IHelper
 	 * @param $text
 	 * @return string
 	 */
-	protected function filterText($text)
+	public function run($text)
 	{
 		$template = $this->application->getPresenter()->createTemplate("\Nette\Templating\Template");
 		$template->setSource($text);
 		return $template->__toString();
-	}
-
-
-
-	/**
-	 * @static
-	 * @param $text
-	 * @return string
-	 */
-	public static function filter($text)
-	{
-		return self::$instance->filterText($text);
 	}
 
 }
