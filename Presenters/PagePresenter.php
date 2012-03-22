@@ -60,7 +60,7 @@ class PagePresenter extends FrontPresenter
 		if($page->parent){
 			$this->generatePath($page->parent);
 		}
-		$this->addPath($page->title, $this->link(":" . PageRoute::DEFAULT_MODULE . ":" . PageRoute::DEFAULT_PRESENTER . ":" . PageRoute::DEFAULT_ACTION, array("url" => $page->url)));
+		$this->addPath($page->title, $this->link(":" . $page->type, array("url" => $page->url)));
 	}
 
 
