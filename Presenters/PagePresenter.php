@@ -37,21 +37,30 @@ class PagePresenter extends FrontPresenter
 		parent::startup();
 		$entity = $this->getParameter("page");
 
+		// generate path
+		$this->generatePath($entity);
 
-		/* generate path */
-		$page = $entity;
-		while ($page) {
-			$this->addPath($page->title, $this->link(":" . PageRoute::DEFAULT_MODULE . ":" . PageRoute::DEFAULT_PRESENTER . ":" . PageRoute::DEFAULT_ACTION, array("url" => $page->url)));
-			$page = $page->parent;
-		}
-
-
-		/* load page module entity */
+		// load page module entity
 		$this->page = $this->loadPage();
 		if (!$this->page) {
 			throw new \Nette\Application\BadRequestException;
 		}
 		$this->url = $this->page->url;
+	}
+
+	
+	
+	/**
+	 * Generate path.
+	 * 
+	 * @param $page 
+	 */
+	protected function generatePath($page)
+	{
+		if($page->parent){
+			$this->generatePath($page->parent);
+		}
+		$this->addPath($page->title, $this->link(":" . PageRoute::DEFAULT_MODULE . ":" . PageRoute::DEFAULT_PRESENTER . ":" . PageRoute::DEFAULT_ACTION, array("url" => $page->url)));
 	}
 
 
