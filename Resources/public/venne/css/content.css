@@ -174,7 +174,10 @@ div#content form fieldset table td, .cke_show_borders form fieldset table td {
     margin: 5px;
 }
 
-div#content form fieldset table td input[type="text"], .cke_show_borders form fieldset table td input[type="text"] {
+div#content form fieldset table td input[type="text"],
+.cke_show_borders form fieldset table td input[type="text"],
+div#content form fieldset table td input[type="password"],
+.cke_show_borders form fieldset table td input[type="password"]{
     border: 1px solid #aaa;
     border-radius: 3px 3px;
     height: 25px;
