@@ -42,7 +42,7 @@ class Module extends \Venne\Module\BaseModule {
 
 		/* Install default roles */
 		$repository = $container->core->roleRepository;
-		foreach (array("admin" => NULL, "guest" => NULL, "registered" => "guest") as $name => $parent) {
+		foreach (array("admin" => NULL, "guest" => NULL, "authenticated" => "guest") as $name => $parent) {
 			$role = $repository->createNew();
 			$role->name = $name;
 			if ($parent) {
