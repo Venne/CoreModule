@@ -98,7 +98,7 @@
 
 		<div class="box first"><a href="{link logout!}">{_"Sign Out"}</a></div>
 
-		<div class="box">{_"Hello"} {$presenter->user->identity->name}</div>
+		<div class="box">{_"Hello"} {$presenter->user->identity->email}</div>
 
 
 		{if $presenter instanceof \App\CoreModule\Presenters\AdminPresenter}
