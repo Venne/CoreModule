@@ -9,11 +9,11 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Repositories;
+namespace CoreModule\Repositories;
 
 use Venne;
 use Venne\Doctrine\ORM\BaseRepository;
-use App\CoreModule\Entities\UserEntity;
+use CoreModule\Entities\UserEntity;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
@@ -44,10 +44,10 @@ class PageRepository extends BaseRepository
 	/**
 	 * Check if page URL is unique.
 	 *
-	 * @param \App\CoreModule\Entities\PageEntity $page
+	 * @param \CoreModule\Entities\PageEntity $page
 	 * @return bool
 	 */
-	public function isUnique(\App\CoreModule\Entities\PageEntity $page)
+	public function isUnique(\CoreModule\Entities\PageEntity $page)
 	{
 		$pages = $this->findBy(array("url" => $page->url));
 

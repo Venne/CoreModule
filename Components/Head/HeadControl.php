@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Components\Head;
+namespace CoreModule\Components\Head;
 
 use Venne;
 use Venne\Application\UI\Control;

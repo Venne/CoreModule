@@ -9,10 +9,10 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule\ModulesModule;
+namespace CoreModule\AdminModule\ModulesModule;
 
-use App\CoreModule\Managers\DependencyNotExistsException;
-use App\CoreModule\Managers\DependencyException;
+use CoreModule\Managers\DependencyNotExistsException;
+use CoreModule\Managers\DependencyException;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>

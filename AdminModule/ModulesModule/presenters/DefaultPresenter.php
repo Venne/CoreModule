@@ -9,10 +9,10 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule\ModulesModule;
+namespace CoreModule\AdminModule\ModulesModule;
 
-use App\CoreModule\Managers\DependencyNotExistsException;
-use App\CoreModule\Managers\DependencyException;
+use CoreModule\Managers\DependencyNotExistsException;
+use CoreModule\Managers\DependencyException;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
@@ -46,7 +46,7 @@ class DefaultPresenter extends BasePresenter {
 	{
 		$this->template->modules = array();
 		foreach ($this->context->core->scannerService->modules as $item) {
-			$class = "\\App\\" . ucfirst($item) . "Module\\Module";
+			$class = "\\" . ucfirst($item) . "Module\\Module";
 			$this->template->modules[$item] = new $class;
 		}
 	}
@@ -148,7 +148,7 @@ class DefaultPresenter extends BasePresenter {
 			$moduleManager->uninstallModule($key, $confirm);
 			$this->flashMessage("Module has been uninstalled", "success");
 			$this->redirect("this");
-		} catch (\App\CoreModule\AdminModule\DependencyException $ex) {
+		} catch (\CoreModule\AdminModule\DependencyException $ex) {
 			$this->template->showUninstallDialog = $ex->dependencies;
 			$this->template->dialogModule = $key;
 		}

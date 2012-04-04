@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Presenters;
+namespace CoreModule\Presenters;
 
 use Venne;
 
@@ -95,8 +95,8 @@ class AdminPresenter extends BasePresenter
 		$this["head"]->setTitle("Venne:CMS");
 		$this["head"]->setRobots($this["head"]::ROBOTS_NOINDEX | $this["head"]::ROBOTS_NOFOLLOW);
 
-		$this->template->adminMenu = new \App\CoreModule\Events\AdminEventArgs;
-		$this->context->eventManager->dispatchEvent(\App\CoreModule\Events\AdminEvents::onAdminMenu, $this->template->adminMenu);
+		$this->template->adminMenu = new \CoreModule\Events\AdminEventArgs;
+		$this->context->eventManager->dispatchEvent(\CoreModule\Events\AdminEvents::onAdminMenu, $this->template->adminMenu);
 		$this->template->adminMenu = $this->template->adminMenu->getNavigations();
 	}
 

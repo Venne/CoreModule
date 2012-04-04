@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Managers;
+namespace CoreModule\Managers;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>

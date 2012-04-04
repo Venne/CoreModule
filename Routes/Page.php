@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Routes;
+namespace CoreModule\Routes;
 
 use Nette\Object;
 use Nette\Application\IRouter;
@@ -17,7 +17,7 @@ use Nette\Application;
 use Venne\Doctrine\ORM\BaseRepository;
 use Nette\Caching\Cache;
 use Nette\Application\Routers\Route;
-use App\CoreModule\Entities\PageEntity;
+use CoreModule\Entities\PageEntity;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
@@ -45,7 +45,7 @@ class Page extends Route
 	/** @var \Nette\Caching\Cache */
 	protected $cache;
 
-	/** @var \App\CoreModule\CmsManager */
+	/** @var \CoreModule\CmsManager */
 	protected $cmsManager;
 
 	/** @var bool */
@@ -59,7 +59,7 @@ class Page extends Route
 	/**
 	 * Constructor
 	 *
-	 * @param \App\CoreModule\CmsManager $cmsManager
+	 * @param \CoreModule\CmsManager $cmsManager
 	 * @param BaseRepository $pageRepository
 	 * @param BaseRepository $langRepository
 	 * @param \Nette\Caching\IStorage $cacheStorage
@@ -67,7 +67,7 @@ class Page extends Route
 	 * @param bool $multilang
 	 * @param string $defaultLangAlias
 	 */
-	public function __construct(\App\CoreModule\Managers\CmsManager $cmsManager, BaseRepository $pageRepository, BaseRepository $langRepository, $cacheStorage, $prefix, $parameters, $languages, $defaultLanguage)
+	public function __construct(\CoreModule\Managers\CmsManager $cmsManager, BaseRepository $pageRepository, BaseRepository $langRepository, $cacheStorage, $prefix, $parameters, $languages, $defaultLanguage)
 	{
 		$this->languages = $languages;
 		$this->defaultLanguage = $defaultLanguage;

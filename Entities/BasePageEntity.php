@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Entities;
+namespace CoreModule\Entities;
 
 use Nette\Object;
 
@@ -22,29 +22,29 @@ class BasePageEntity extends \Venne\Doctrine\ORM\BaseEntity {
 	const LINK = "";
 
 	/**
-	 * @var \App\CoreModule\Entities\PageEntity
-	 * @OneToOne(targetEntity="\App\CoreModule\Entities\PageEntity", cascade={"persist", "remove", "detach"})
+	 * @var \CoreModule\Entities\PageEntity
+	 * @OneToOne(targetEntity="\CoreModule\Entities\PageEntity", cascade={"persist", "remove", "detach"})
 	 * @JoinColumn(name="page_id", referencedColumnName="id", onDelete="CASCADE")
 	 */
 	protected $page;
 
 	/**
-	 * @Form(type="manyToMany", targetEntity="\App\CoreModule\Entities\LanguageEntity")
+	 * @Form(type="manyToMany", targetEntity="\CoreModule\Entities\LanguageEntity")
 	 */
 	protected $languages;
 
 	/**
-	 * @Form(type="manyToOne", targetEntity="\App\CoreModule\Entities\PageEntity")
+	 * @Form(type="manyToOne", targetEntity="\CoreModule\Entities\PageEntity")
 	 */
 	protected $translationFor;
 
 	/**
-	 * @Form(type="manyToOne", targetEntity="\App\CoreModule\Entities\PageEntity")
+	 * @Form(type="manyToOne", targetEntity="\CoreModule\Entities\PageEntity")
 	 */
 	protected $parent;
 
 	/**
-	 * @Form(type="manyToOne", targetEntity="\App\CoreModule\Entities\LayoutEntity")
+	 * @Form(type="manyToOne", targetEntity="\CoreModule\Entities\LayoutEntity")
 	 */
 	protected $layout;
 
@@ -52,7 +52,7 @@ class BasePageEntity extends \Venne\Doctrine\ORM\BaseEntity {
 
 	public function __construct()
 	{
-		$this->page = new \App\CoreModule\Entities\PageEntity(static::LINK);
+		$this->page = new \CoreModule\Entities\PageEntity(static::LINK);
 		parent::__construct();
 	}
 
@@ -68,7 +68,7 @@ class BasePageEntity extends \Venne\Doctrine\ORM\BaseEntity {
 	public function getPage()
 	{
 		if (!$this->page) {
-			$this->page = new \App\CoreModule\Entities\PageEntity(static::LINK);
+			$this->page = new \CoreModule\Entities\PageEntity(static::LINK);
 		}
 		return $this->page;
 	}

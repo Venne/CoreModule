@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Managers;
+namespace CoreModule\Managers;
 
 use Venne;
 use Nette\Object;
@@ -53,7 +53,7 @@ class ModuleManager extends Object {
 	 */
 	public function getModuleInstance($name)
 	{
-		$class = "\\App\\" . ucfirst($name) . "Module\\Module";
+		$class = "\\" . ucfirst($name) . "Module\\Module";
 		return new $class;
 	}
 
@@ -140,7 +140,7 @@ class ModuleManager extends Object {
 	 */
 	public function checkModule($name, $version = null, $operator = Null)
 	{
-		$class = "\\App\\" . ucfirst($name) . "Module\\Module";
+		$class = "\\" . ucfirst($name) . "Module\\Module";
 		if (!class_exists($class)) {
 			return false;
 		}
@@ -310,7 +310,7 @@ class ModuleManager extends Object {
 
 	public function upgradeModule($name)
 	{
-		$class = "\\App\\" . ucfirst($name) . "Module\\Module";
+		$class = "\\" . ucfirst($name) . "Module\\Module";
 		$module = new $class;
 		$this->config["parameters"]["modules"][$name]["version"] = $module->getVersion();
 		$this->config->save();
@@ -322,7 +322,7 @@ class ModuleManager extends Object {
 
 	public function downgradeModule($name)
 	{
-		$class = "\\App\\" . ucfirst($name) . "Module\\Module";
+		$class = "\\" . ucfirst($name) . "Module\\Module";
 		$module = new $class;
 		$this->config["parameters"]["modules"][$name]["version"] = $module->getVersion();
 		$this->config->save();

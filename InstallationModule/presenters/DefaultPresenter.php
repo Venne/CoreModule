@@ -9,9 +9,9 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\InstallationModule;
+namespace CoreModule\InstallationModule;
 
-use App\CoreModule\Presenters\BasePresenter;
+use CoreModule\Presenters\BasePresenter;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>

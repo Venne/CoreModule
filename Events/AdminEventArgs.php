@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Events;
+namespace CoreModule\Events;
 
 use Nette;
 
@@ -25,9 +25,9 @@ class AdminEventArgs extends \Doctrine\Common\EventArgs {
 
 
 	/**
-	 * @param \App\StaModule\NavigationEntity $entity
+	 * @param \StaModule\NavigationEntity $entity
 	 */
-	public function addNavigation(\App\CoreModule\Entities\NavigationEntity $entity)
+	public function addNavigation(\CoreModule\Entities\NavigationEntity $entity)
 	{
 		$this->list[] = $entity;
 	}

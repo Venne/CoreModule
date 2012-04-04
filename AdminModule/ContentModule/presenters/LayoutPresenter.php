@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule\ContentModule;
+namespace CoreModule\AdminModule\ContentModule;
 
 use Venne;
 

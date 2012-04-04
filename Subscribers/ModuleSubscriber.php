@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Subscribers;
+namespace CoreModule\Subscribers;
 
 use Doctrine\Common\EventSubscriber;
 use Venne\Module\Events\Events;

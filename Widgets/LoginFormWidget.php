@@ -9,14 +9,14 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Widgets;
+namespace CoreModule\Widgets;
 
 use Venne;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
  */
-class LoginFormWidget extends \App\CoreModule\Forms\LoginForm {
+class LoginFormWidget extends \CoreModule\Forms\LoginForm {
 
 
 }

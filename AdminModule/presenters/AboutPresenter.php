@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule;
+namespace CoreModule\AdminModule;
 
 use Venne;
 
@@ -18,6 +18,6 @@ use Venne;
  *
  * @secured
  */
-class AboutPresenter extends \App\CoreModule\Presenters\AdminPresenter {
+class AboutPresenter extends \CoreModule\Presenters\AdminPresenter {
 
 }

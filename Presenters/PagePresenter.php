@@ -9,10 +9,10 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Presenters;
+namespace CoreModule\Presenters;
 
 use Venne;
-use App\CoreModule\Routes\Page as PageRoute;
+use CoreModule\Routes\Page as PageRoute;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
@@ -24,7 +24,7 @@ class PagePresenter extends FrontPresenter
 	/** @persistent */
 	public $url = "";
 
-	/** @var \App\CoreModule\Entities\BasePageEntity */
+	/** @var \CoreModule\Entities\BasePageEntity */
 	public $page;
 
 
@@ -68,7 +68,7 @@ class PagePresenter extends FrontPresenter
 	/**
 	 * Load page.
 	 *
-	 * @return \App\CoreModule\Entities\BasePageEntity
+	 * @return \CoreModule\Entities\BasePageEntity
 	 */
 	protected function loadPage()
 	{

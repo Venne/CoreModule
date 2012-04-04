@@ -9,11 +9,11 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Repositories;
+namespace CoreModule\Repositories;
 
 use Venne;
 use Venne\Doctrine\ORM\BaseRepository;
-use App\CoreModule\Entities\UserEntity;
+use CoreModule\Entities\UserEntity;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>

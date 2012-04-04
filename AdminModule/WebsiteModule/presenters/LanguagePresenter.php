@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule\WebsiteModule;
+namespace CoreModule\AdminModule\WebsiteModule;
 
 use \Nette\Application\UI\Form;
 

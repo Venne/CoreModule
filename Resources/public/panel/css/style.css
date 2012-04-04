@@ -22,7 +22,7 @@
     color: #aaaaaa;
     padding-top: 6px;
     padding-bottom: 6px;
-    z-index: 999;
+    z-index: 99999;
     position: fixed;
 
     -moz-box-shadow: 0px 0px 5px #000000;
@@ -41,6 +41,7 @@
 #venne-panel-roller {
     font: 12px "Trebuchet MS", "Geneva CE", lucida, sans-serif;
     position: fixed;
+	z-index: 99998;
     text-align: center;
     color: #aaaaaa;
     width: 70px;

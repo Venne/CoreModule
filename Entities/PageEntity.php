@@ -9,13 +9,13 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Entities;
+namespace CoreModule\Entities;
 
 use Venne;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
- * @Entity(repositoryClass="\App\CoreModule\Repositories\PageRepository")
+ * @Entity(repositoryClass="\CoreModule\Repositories\PageRepository")
  * @Table(name="page")
  */
 class PageEntity extends \Venne\Doctrine\ORM\BaseEntity {
@@ -444,7 +444,7 @@ class PageEntity extends \Venne\Doctrine\ORM\BaseEntity {
 	 * Return the same page in other language alias.
 	 *
 	 * @param string $alias
-	 * @return \App\CoreModule\Entities\PageEntity
+	 * @return \CoreModule\Entities\PageEntity
 	 */
 	public function getPageWithLanguageAlias($alias)
 	{

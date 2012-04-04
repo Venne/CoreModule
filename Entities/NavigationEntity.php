@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Entities;
+namespace CoreModule\Entities;
 
 use Nette\Object;
 use Venne\ORM\Column;

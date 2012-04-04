@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule;
+namespace CoreModule;
 
 use Nette\Config\Compiler;
 use Nette\Config\Configurator;
@@ -31,7 +31,7 @@ class Module extends \Venne\Module\BaseModule {
 
 	public function compile(Compiler $compiler)
 	{
-		$compiler->addExtension($this->getName(), new \App\CoreModule\DI\CoreExtension($this->getPath(), $this->getNamespace()));
+		$compiler->addExtension($this->getName(), new \CoreModule\DI\CoreExtension($this->getPath(), $this->getNamespace()));
 	}
 
 

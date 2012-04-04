@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Macros;
+namespace CoreModule\Macros;
 
 use Venne;
 use Nette\Latte\MacroNode;
@@ -55,12 +55,12 @@ class HeadMacro extends \Nette\Latte\Macros\MacroSet
 	public function bodyEnd(\Nette\Latte\MacroNode $node, $writer)
 	{
 		return $writer->write('$_bodyMacroData = ob_get_clean();?><head>
-<?php $presenter->context->eventManager->dispatchEvent(\App\CoreModule\Events\RenderEvents::onHeadBegin); ?>
-<?php echo $presenter["head"]->render(); echo $_headMacroData;?><?php $presenter->context->eventManager->dispatchEvent(\App\CoreModule\Events\RenderEvents::onHeadEnd); ?>
+<?php $presenter->context->eventManager->dispatchEvent(\CoreModule\Events\RenderEvents::onHeadBegin); ?>
+<?php echo $presenter["head"]->render(); echo $_headMacroData;?><?php $presenter->context->eventManager->dispatchEvent(\CoreModule\Events\RenderEvents::onHeadEnd); ?>
 </head>
 
-<body<?php if($basePath){?> data-venne-basepath="<?php echo $basePath;?>"<?php } ?>><?php $presenter->context->eventManager->dispatchEvent(\App\CoreModule\Events\RenderEvents::onBodyBegin); ?>
-<?php echo $_bodyMacroData;?><?php $presenter->context->eventManager->dispatchEvent(\App\CoreModule\Events\RenderEvents::onBodyEnd); ?>
+<body<?php if($basePath){?> data-venne-basepath="<?php echo $basePath;?>"<?php } ?>><?php $presenter->context->eventManager->dispatchEvent(\CoreModule\Events\RenderEvents::onBodyBegin); ?>
+<?php echo $_bodyMacroData;?><?php $presenter->context->eventManager->dispatchEvent(\CoreModule\Events\RenderEvents::onBodyEnd); ?>
 </body>
 <?php
 ');

@@ -9,11 +9,11 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Subscribers;
+namespace CoreModule\Subscribers;
 
 use Doctrine\Common\EventSubscriber;
-use App\CoreModule\Events\AdminEvents;
-use App\CoreModule\Events\AdminEventArgs;
+use CoreModule\Events\AdminEvents;
+use CoreModule\Events\AdminEventArgs;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
@@ -40,7 +40,7 @@ class AdminSubscriber implements EventSubscriber {
 	 */
 	public function onAdminMenu(AdminEventArgs $args)
 	{
-		$nav = new \App\CoreModule\Entities\NavigationEntity("Content");
+		$nav = new \CoreModule\Entities\NavigationEntity("Content");
 		$nav->setLink(":Core:Admin:Content:Default:");
 		$nav->setMask(":Core:Admin:Content:*:*");
 		$args->addNavigation($nav);

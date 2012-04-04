@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Helpers;
+namespace CoreModule\Helpers;
 
 use Venne;
 use Nette;
@@ -46,10 +46,10 @@ class ContentHelper extends BaseHelper
 	 */
 	public function run($text)
 	{
-		$args = new \App\CoreModule\Events\ContentHelperArgs();
+		$args = new \CoreModule\Events\ContentHelperArgs();
 		$args->setText($text);
 
-		$this->eventManager->dispatchEvent(\App\CoreModule\Events\ContentHelperEvents::onContentRender, $args);
+		$this->eventManager->dispatchEvent(\CoreModule\Events\ContentHelperEvents::onContentRender, $args);
 
 		return $args->getText();
 	}

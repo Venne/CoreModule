@@ -9,13 +9,13 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Entities;
+namespace CoreModule\Entities;
 
 use Venne;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
- * @Entity(repositoryClass="\App\CoreModule\Repositories\RoleRepository")
+ * @Entity(repositoryClass="\CoreModule\Repositories\RoleRepository")
  * @Table(name="role")
  *
  * @property string $name

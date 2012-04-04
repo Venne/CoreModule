@@ -9,14 +9,14 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule\ContentModule;
+namespace CoreModule\AdminModule\ContentModule;
 
 use Venne;
 
 /**
  * @author Josef Kříž <pepakriz@gmail.com>
  */
-abstract class BasePresenter extends \App\CoreModule\Presenters\AdminPresenter {
+abstract class BasePresenter extends \CoreModule\Presenters\AdminPresenter {
 
 
 	public function startup()

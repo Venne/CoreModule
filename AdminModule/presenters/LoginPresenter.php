@@ -7,7 +7,7 @@
  * @package	MyApplication
  */
 
-namespace App\CoreModule\AdminModule;
+namespace CoreModule\AdminModule;
 
 use Nette\Application\UI, Nette\Security;
 
@@ -17,7 +17,7 @@ use Nette\Application\UI, Nette\Security;
  * @author	 John Doe
  * @package	MyApplication
  */
-class LoginPresenter extends \App\CoreModule\Presenters\AdminPresenter {
+class LoginPresenter extends \CoreModule\Presenters\AdminPresenter {
 
 
 	/** @persistent */
@@ -42,7 +42,7 @@ class LoginPresenter extends \App\CoreModule\Presenters\AdminPresenter {
 	 */
 	protected function createComponentSignInForm($name)
 	{
-		$form = new \App\CoreModule\Forms\LoginForm;
+		$form = new \CoreModule\Forms\LoginForm;
 		return $form;
 	}
 

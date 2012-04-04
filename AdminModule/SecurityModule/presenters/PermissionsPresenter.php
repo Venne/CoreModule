@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\AdminModule\SecurityModule;
+namespace CoreModule\AdminModule\SecurityModule;
 
 use Venne\Doctrine\ORM\BaseRepository;
 
@@ -134,7 +134,7 @@ class PermissionsPresenter extends BasePresenter {
 	public function formSaveRecursion($form, $menu)
 	{
 		$repository = $this->permissionRepository;
-		$session = $this->context->session->getSection(\App\CoreModule\AuthorizatorFactory::SESSION_SECTION);
+		$session = $this->context->session->getSection(\CoreModule\AuthorizatorFactory::SESSION_SECTION);
 
 		foreach ($menu as $key => $item) {
 			if ($form["allow_" . str_replace("\\", "_", $item)]->isSubmittedBy()) {

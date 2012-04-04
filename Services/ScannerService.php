@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Services;
+namespace CoreModule\Services;
 
 use Venne;
 use Nette\Object;

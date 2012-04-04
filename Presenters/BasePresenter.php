@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Presenters;
+namespace CoreModule\Presenters;
 
 use Venne;
 
@@ -38,7 +38,7 @@ class BasePresenter extends \Venne\Application\UI\Presenter
 	 */
 	protected function getEventArgs()
 	{
-		$args = new \App\CoreModule\Events\EventArgs();
+		$args = new \CoreModule\Events\EventArgs();
 		$args->setPresenter($this);
 		return $args;
 	}
@@ -53,7 +53,7 @@ class BasePresenter extends \Venne\Application\UI\Presenter
 
 
 		// Startup event
-		$this->context->eventManager->dispatchEvent(\App\CoreModule\Events\Events::onPresenterStartup, $this->getEventArgs());
+		$this->context->eventManager->dispatchEvent(\CoreModule\Events\Events::onPresenterStartup, $this->getEventArgs());
 
 
 		// Language
@@ -147,7 +147,7 @@ class BasePresenter extends \Venne\Application\UI\Presenter
 		parent::afterRender();
 
 		// onRender event
-		$this->context->eventManager->dispatchEvent(\App\CoreModule\Events\Events::onPresenterRender, $this->getEventArgs());
+		$this->context->eventManager->dispatchEvent(\CoreModule\Events\Events::onPresenterRender, $this->getEventArgs());
 	}
 
 
@@ -161,7 +161,7 @@ class BasePresenter extends \Venne\Application\UI\Presenter
 		parent::shutdown($response);
 
 		// onShutdown event
-		$this->context->eventManager->dispatchEvent(\App\CoreModule\Events\Events::onPresenterShutdown, $this->getEventArgs());
+		$this->context->eventManager->dispatchEvent(\CoreModule\Events\Events::onPresenterShutdown, $this->getEventArgs());
 
 		\Venne\Panels\Stopwatch::stop("template render");
 		\Venne\Panels\Stopwatch::start();
@@ -191,7 +191,7 @@ class BasePresenter extends \Venne\Application\UI\Presenter
 
 
 	/**
-	 * @return \App\CoreModule\Components\Head\HeadControl
+	 * @return \CoreModule\Components\Head\HeadControl
 	 */
 	public function createComponentHead()
 	{
@@ -202,7 +202,7 @@ class BasePresenter extends \Venne\Application\UI\Presenter
 
 
 	/**
-	 * @return \App\CoreModule\Components\Panel\PanelControl
+	 * @return \CoreModule\Components\Panel\PanelControl
 	 */
 	public function createComponentVennePanel()
 	{

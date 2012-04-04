@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\Macros;
+namespace CoreModule\Macros;
 
 use Venne;
 
@@ -29,7 +29,7 @@ class DialogMacro extends \Nette\Latte\Macros\MacroSet {
 
 	public function start(\Nette\Latte\MacroNode $node, $writer)
 	{
-		return $writer->write('echo \App\CoreModule\Macros\DialogMacro::make(%node.word, %node.array?)');
+		return $writer->write('echo \CoreModule\Macros\DialogMacro::make(%node.word, %node.array?)');
 	}
 
 

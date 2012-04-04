@@ -9,7 +9,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace App\CoreModule\DI;
+namespace CoreModule\DI;
 
 use Venne;
 use Venne\Module\CompilerExtension;
@@ -49,7 +49,7 @@ class CoreExtension extends CompilerExtension
 
 			// Administration
 			$container->addDefinition($this->prefix("adminRoute"))
-				->setClass("App\CoreModule\Routes\Admin",
+				->setClass("CoreModule\Routes\Admin",
 				array(($adminPrefix ? "$adminPrefix/" : "") . '<module>/<presenter>[/<action>[/<id>]]',
 					array('module' => "Core", 'presenter' => 'Default', 'action' => 'default',)
 				))
@@ -57,7 +57,7 @@ class CoreExtension extends CompilerExtension
 				->setAutowired(false);
 
 			$container->addDefinition($this->prefix("adminRouteList"))
-				->setClass("App\CoreModule\Routes\RouteList", array("admin"))
+				->setClass("CoreModule\Routes\RouteList", array("admin"))
 				->addSetup('$service[] = ?', "@core.adminRoute")
 				->addTag("route", array("priority"=>9999999))
 				->setAutowired(false);
@@ -65,7 +65,7 @@ class CoreExtension extends CompilerExtension
 
 			// CMS route
 			$container->addDefinition($this->prefix("pageRoute"))
-				->setClass("App\CoreModule\Routes\Page",
+				->setClass("CoreModule\Routes\Page",
 					array('@core.cmsManager', '@core.pageRepository', '@core.languageRepository', '@cacheStorage', $prefix, $parameters, $container->parameters["website"]["languages"], $container->parameters["website"]["defaultLanguage"])
 					)
 				->addTag("route", array("priority"=>100))
