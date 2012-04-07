@@ -55,7 +55,7 @@ class DefaultPresenter extends BasePresenter {
 
 	public function createComponentSystemForm()
 	{
-		$form = $this->context->createCore_systemForm();
+		$form = $this->context->core->createSystemForm();
 		$form->setRoot("parameters");
 		$form->addSubmit("_submit", "Save");
 		$form->onSuccess[] = function($form)

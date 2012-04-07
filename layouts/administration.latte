@@ -29,7 +29,7 @@
 				<div id="logo"></div>
 			{if !$presenter instanceof \Venne\Application\UI\InstallationPresenter}</a>{/if}
 			<div id="menu">
-				{if !isset($hideMenuItems) && $presenter->context->createCheckConnection() && !$presenter->context->core_moduleManager->checkModuleUpgrades()}
+				{if !isset($hideMenuItems) && $presenter->context->createCheckConnection() && !$presenter->context->core->moduleManager->checkModuleUpgrades()}
 				<ul>
 					{if $presenter->isAllowed(":Core:Admin:Website:Default:")}<li><a class="{if $presenter->isLinkCurrent(":Core:Admin:Website:*")}active{/if}" href="{plink :Core:Admin:Website:Default:}">Website settings</a></li>{/if}
 					{if $presenter->isAllowed(":Core:Admin:Modules:Default:")}<li><a class="{if $presenter->isLinkCurrent(":Core:Admin:Modules:*")}active{/if}" href="{plink :Core:Admin:Modules:Default:}">Module settings</a></li>{/if}
@@ -42,7 +42,7 @@
 		<div id="middle">
 			<div id="middle-left">
 				<div id="submenu">
-					{if !isset($hideMenuItems) && $presenter->context->createCheckConnection() && !$presenter->context->core_moduleManager->checkModuleUpgrades()}
+					{if !isset($hideMenuItems) && $presenter->context->createCheckConnection() && !$presenter->context->core->moduleManager->checkModuleUpgrades()}
 						<h3>{_"Modules settings"}</h3>
 						<ul>
 						{foreach $adminMenu as $item}

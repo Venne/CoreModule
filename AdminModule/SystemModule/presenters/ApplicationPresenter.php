@@ -36,7 +36,7 @@ class ApplicationPresenter extends BasePresenter {
 
 	public function createComponentApplicationForm()
 	{
-		$form = $this->context->createCore_systemApplicationForm();
+		$form = $this->context->core->createSystemApplicationForm();
 		$form->setRoot("");
 		$form->addSubmit("_submit", "Save");
 		$form->onSuccess[] = function($form)
