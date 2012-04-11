@@ -1,6 +1,6 @@
 {
-	"name": "venne/coreModule",
-	"description": "Core module with administration and ",
+	"name": "venne/core-module",
+	"description": "Core module with administration",
 	"keywords": ["cms", "nette", "venne", "module"],
 	"homepage": "https://github.com/Venne/CoreModule",
 	"authors": [
