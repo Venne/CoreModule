@@ -59,7 +59,7 @@ class SystemModeForm extends \Venne\Application\UI\Form {
 	public function handleSuccess()
 	{
 		if ($this->mode !== NULL) {
-			$key = array_search($this->mode, ((array)$this->configManager["parameters"]["modes"]));
+			$key = array_search($this->mode, ((array)$this->configManager["parameters"]["environments"]));
 			$this->configManager["parameters"]["modes"][$key] = $this["name"]->value;
 			rename($this->configDir . "/config." . $this->mode . ".neon", $this->configDir . "/config." . $this["name"]->value . ".neon");
 		} else {

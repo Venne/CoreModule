@@ -25,7 +25,7 @@ class SystemForm extends \Venne\Forms\ConfigForm {
 		parent::startup();
 
 		$this->addGroup("Mode settings");
-		$this->addSelect("mode", "Mode")->setItems($this->presenter->context->parameters["modes"], false);
+		$this->addSelect("mode", "Mode")->setItems($this->presenter->context->parameters["environments"], false);
 
 		$container = $this->addContainer("administration");
 		$container->setCurrentGroup($this->addGroup("Administration settings"));

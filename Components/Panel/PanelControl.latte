@@ -109,7 +109,7 @@
 				{_"Mode"} <a href="javaScript:;">{$presenter->mode}</a>
 				<div class="popup-open elements">
 					<ul>
-					{foreach $presenter->context->parameters["modes"] as $item}
+					{foreach $presenter->context->parameters["environments"] as $item}
 						<li><a href="{plink this, 'mode'=>$item}">{$item}</a></li>
 					{/foreach}
 					</ul>

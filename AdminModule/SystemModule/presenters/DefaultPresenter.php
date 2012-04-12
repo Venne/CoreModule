@@ -98,7 +98,7 @@ class DefaultPresenter extends BasePresenter {
 
 	public function renderDefault()
 	{
-		$this->template->modes = $this->context->parameters["modes"];
+		$this->template->modes = $this->context->parameters["environments"];
 	}
 
 }
